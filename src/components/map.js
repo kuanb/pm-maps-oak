@@ -19,7 +19,7 @@ export default function Map(){
     let protocol = new Protocol();
     maplibregl.addProtocol("pmtiles", protocol.tile);
 
-    const basePmUrl = process.env.NODE_ENV == 'development' && false ? 'http://127.0.0.1:8080' : 'https://github.com/kuanb/pm-maps-oak/raw/main';
+    const basePmUrl = process.env.NODE_ENV == 'development' && false ? 'http://127.0.0.1:8080' : 'https://github.com/kuanb/pm-maps-oak';
     
     map.current = new maplibregl.Map({
       container: mapContainer.current,
@@ -29,7 +29,7 @@ export default function Map(){
         sources: {
           protomaps: {
                 type: 'vector',
-                url: `pmtiles://${basePmUrl}/pmt/oakland.pmtiles`,
+                url: `pmtiles://${basePmUrl}/oakland.pmtiles`,
                 attribution: '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>'
             }
         },
