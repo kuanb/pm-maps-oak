@@ -19,7 +19,7 @@ export default function Map(){
     let protocol = new Protocol();
     maplibregl.addProtocol("pmtiles", protocol.tile);
 
-    const basePmUrl = process.env.development ? '127.0.0.1:8080' : '127.0.0.1:8080';
+    const basePmUrl = process.env.NODE_ENV == 'development' ? '127.0.0.1:8080' : 'github.com/kuanb/pm-maps-oak/raw/main';
     
     map.current = new maplibregl.Map({
       container: mapContainer.current,
@@ -29,7 +29,7 @@ export default function Map(){
         sources: {
           protomaps: {
                 type: 'vector',
-                url: `pmtiles://http://${basePmUrl}/oakland-bay-area.pmtiles`,
+                url: `pmtiles://http://${basePmUrl}/pmt/oakland.pmtiles`,
                 attribution: '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>'
             }
         },
