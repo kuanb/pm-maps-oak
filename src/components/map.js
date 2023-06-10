@@ -19,7 +19,7 @@ export default function Map(){
     let protocol = new Protocol();
     maplibregl.addProtocol("pmtiles", protocol.tile);
 
-    const basePmUrl = process.env.NODE_ENV == 'development' && false ? 'http://127.0.0.1:8080' : 'https://github.com/kuanb/pm-maps-oak';
+    const basePmUrl = process.env.NODE_ENV == 'development' ? 'http://10.243.111.227:8080/public' : 'https://github.com/kuanb/pm-maps-oak';
     
     map.current = new maplibregl.Map({
       container: mapContainer.current,
